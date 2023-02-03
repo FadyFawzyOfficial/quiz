@@ -12,7 +12,23 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Quiz'),
         ),
-        body: const Text('This is a default text!'),
+        body: Column(
+          children: const [
+            Text('The Question?'),
+            ElevatedButton(
+              onPressed: null,
+              child: Text('Answer 1'),
+            ),
+            ElevatedButton(
+              onPressed: null,
+              child: Text('Answer 2'),
+            ),
+            ElevatedButton(
+              onPressed: null,
+              child: Text('Answer 3'),
+            ),
+          ],
+        ),
       ),
     );
   }
