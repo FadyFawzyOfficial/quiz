@@ -22,11 +22,14 @@ class MyApp extends StatelessWidget {
               child: const Text('Answer 1'),
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: () => print('Answer 2 chosen!'),
               child: const Text('Answer 2'),
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: () {
+                // ...
+                print('Answer 3 chosen!');
+              },
               child: const Text('Answer 3'),
             ),
           ],
