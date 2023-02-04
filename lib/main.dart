@@ -13,23 +13,43 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
   final _questions = [
     {
       'question': 'What\'s your favorite color?',
-      'answers': ['Black', 'Red', 'Green', 'White'],
+      'answers': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 3},
+        {'text': 'White', 'score': 1},
+      ],
     },
     {
       'question': 'What\'s your favorite animal?',
-      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+      'answers': [
+        {'text': 'Rabbit', 'score': 3},
+        {'text': 'Snake', 'score': 11},
+        {'text': 'Elephant', 'score': 5},
+        {'text': 'Lion', 'score': 9},
+      ],
     },
     {
-      'question': 'who\'s your favorite instructor?',
-      'answers': ['Angela', 'Maximilian', 'Fady', 'Fawzy'],
+      'question': 'Who\'s your favorite instructor?',
+      'answers': [
+        {'text': 'Fady', 'score': 1},
+        {'text': 'Fady', 'score': 1},
+        {'text': 'Fady', 'score': 1},
+        {'text': 'Fady', 'score': 1},
+      ],
     },
   ];
 
-  void _answerQuestion() => setState(() => _questionIndex++);
+  var _totalScore = 0;
+  var _questionIndex = 0;
+
+  void _answerQuestion(int score) {
+    _totalScore += score;
+    setState(() => _questionIndex++);
+  }
 
   @override
   Widget build(BuildContext context) {
