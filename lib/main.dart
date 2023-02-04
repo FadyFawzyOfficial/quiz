@@ -6,17 +6,17 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  State<StatefulWidget> createState() => MyAppState();
+  State<StatefulWidget> createState() => _MyAppState();
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
-  final questions = [
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
+  final _questions = [
     'What\'s your favorite color?',
     'What\'s your favorite animal?',
   ];
 
-  void answerQuestion() => setState(() => questionIndex++);
+  void _answerQuestion() => setState(() => _questionIndex++);
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +25,9 @@ class MyAppState extends State<MyApp> {
         appBar: AppBar(title: const Text('Quiz')),
         body: Column(
           children: [
-            Text(questions[questionIndex]),
+            Text(_questions[_questionIndex]),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: const Text('Answer 1'),
             ),
             ElevatedButton(
