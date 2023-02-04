@@ -25,25 +25,29 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text('Quiz')),
-        body: Column(
-          children: [
-            Question(_questions[_questionIndex]),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: const Text('Answer 1'),
-            ),
-            ElevatedButton(
-              onPressed: () => print('Answer 2 chosen!'),
-              child: const Text('Answer 2'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // ...
-                print('Answer 3 chosen!');
-              },
-              child: const Text('Answer 3'),
-            ),
-          ],
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Question(_questions[_questionIndex]),
+              ElevatedButton(
+                onPressed: _answerQuestion,
+                child: const Text('Answer 1'),
+              ),
+              ElevatedButton(
+                onPressed: () => print('Answer 2 chosen!'),
+                child: const Text('Answer 2'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // ...
+                  print('Answer 3 chosen!');
+                },
+                child: const Text('Answer 3'),
+              ),
+            ],
+          ),
         ),
       ),
     );
