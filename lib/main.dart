@@ -38,21 +38,23 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(title: const Text('Quiz')),
         body: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Question(_questions[_questionIndex]['question'] as String),
-              const SizedBox(height: 16),
-              ...(_questions[_questionIndex]['answers'] as List)
-                  .map(
-                    (answer) => Answer(
-                      answerText: answer,
-                      onPressed: _answerQuestion,
-                    ),
-                  )
-                  .toList()
-            ],
-          ),
+          child: _questionIndex < _questions.length
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Question(_questions[_questionIndex]['question'] as String),
+                    const SizedBox(height: 16),
+                    ...(_questions[_questionIndex]['answers'] as List<String>)
+                        .map(
+                          (answer) => Answer(
+                            answerText: answer,
+                            onPressed: _answerQuestion,
+                          ),
+                        )
+                        .toList()
+                  ],
+                )
+              : const Center(child: Text('You did it!')),
         ),
       ),
     );
