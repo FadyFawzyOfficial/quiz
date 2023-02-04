@@ -43,18 +43,14 @@ class _MyAppState extends State<MyApp> {
             children: [
               Question(_questions[_questionIndex]['question'] as String),
               const SizedBox(height: 16),
-              Answer(
-                answerText: 'Answer 1',
-                onPressed: _answerQuestion,
-              ),
-              Answer(
-                answerText: 'Answer 1',
-                onPressed: _answerQuestion,
-              ),
-              Answer(
-                answerText: 'Answer 1',
-                onPressed: _answerQuestion,
-              ),
+              ...(_questions[_questionIndex]['answers'] as List)
+                  .map(
+                    (answer) => Answer(
+                      answerText: answer,
+                      onPressed: _answerQuestion,
+                    ),
+                  )
+                  .toList()
             ],
           ),
         ),
