@@ -15,8 +15,18 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
   final _questions = [
-    'What\'s your favorite color?',
-    'What\'s your favorite animal?',
+    {
+      'question': 'What\'s your favorite color?',
+      'answers': ['Black', 'Red', 'Green', 'White'],
+    },
+    {
+      'question': 'What\'s your favorite animal?',
+      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+    },
+    {
+      'question': 'who\'s your favorite instructor?',
+      'answers': ['Angela', 'Maximilian', 'Fady', 'Fawzy'],
+    },
   ];
 
   void _answerQuestion() => setState(() => _questionIndex++);
@@ -31,7 +41,7 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Question(_questions[_questionIndex]),
+              Question(_questions[_questionIndex]['question'] as String),
               const SizedBox(height: 16),
               Answer(
                 answerText: 'Answer 1',
